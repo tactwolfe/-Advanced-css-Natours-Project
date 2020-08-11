@@ -1,0 +1,22 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "this is a simple  web page we have created using advance property of css such as animation saas and others...",
+  "main": "index.js",
+  "scripts": {
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tactwolfe/-Advanced-css-Natours-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tactwolfe/-Advanced-css-Natours-Project/issues"
+  },
+  "homepage": "https://github.com/tactwolfe/-Advanced-css-Natours-Project#readme",
+  "devDependencies": {
+    "node-sass": "^4.14.1"
+  }
+}

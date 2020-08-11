@@ -1,0 +1,60 @@
+.btn{
+
+    &:link,
+    &:visited//so normal state of link unclicked and link visited will remain same
+    {
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .4s; /*transition property always used in initial state*/
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    &--white{
+        background-color: $color-white;
+        color: $color-grey-dark;
+
+        &::after{
+            background-color: $color-white;
+            }
+    }
+    
+
+    &:hover{
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black,.8); /*first two are in which direction we want to put the shadow 3rd argument is blur value and last is color of the shadow*/
+        
+        &::after{ //hover state of the psudo after element of the button
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active{
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .8);
+    }
+
+    &::after{
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s;
+    }
+
+    &--animated{
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards; /*this automatically apply our 0% animation state to targeted element*/
+        
+    }
+}
+

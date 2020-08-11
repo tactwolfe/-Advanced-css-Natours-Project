@@ -1,0 +1,17 @@
+*, /*universal selector to make all browser render our webpage in same way */
+*::after, /*with these two line of code we aslo make after and before psudo element to inherit this behaviour too*/
+*::before { 
+    margin: 0;
+    padding: 0;
+
+    box-sizing: inherit; /*inherit the box size property from down below*/
+    
+}
+html{
+    //this define what 1 rem is
+    font-size: 62.5%; /*let our user change font size by change zoom in value of their browser*/
+}
+
+body{
+    box-sizing: border-box;
+}

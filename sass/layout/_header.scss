@@ -1,0 +1,39 @@
+.header{
+    position: relative;
+    height: 95vh; /*in every case the height will be of 95% of view port height*/
+    background-image: 
+    linear-gradient( /*we put lineart gradiant first because we want it on the top and below that we want to show the hero image ,we specifies to right to make the gradiant start from left and go all the way to right*/
+        to right,
+        rgba($color-primary-light,0.8) , 
+        rgba($color-primary-dark,0.8)
+        ), 
+    url("../img/hero.jpg");
+
+    background-size: cover; /*it will cover the entire avalable viewport*/
+    background-position: top; /*even if we change the view port the top remains the same*/
+    clip-path: polygon( 0  0, 100%  0, 100%  75vh,0  100%);
+    
+    &__logo-box{
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+    
+    &__logo{
+        height: 3.5rem;
+    }
+    
+    &__logo-box:hover &__logo { //TO ADD ANIMATION TO THE LOGO 
+        animation: moveInRight 1s ease-in;
+    }
+
+    &__text-box{
+        position: absolute;
+        top: 40%; /*relative to parent element*/
+        left: 50%; /*relative to parent element*/
+        transform: translate(-50%,-50%); /*transform it in relative to itself to centre it at any viewport*/
+        text-align: center;
+    }
+
+    
+}

@@ -1,210 +1,279 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
-*, /*universal selector to make all browser render our webpage in same way */
-*::after, /*with these two line of code we aslo make after and before psudo element to inherit this behaviour too*/
-*::before { 
-    margin: 0;
-    padding: 0;
-
-    box-sizing: inherit; /*inherit the box size property from down below*/
-    
-}
-html{
-    font-size: 62.5%; /*let our user chnage font size by change zoom in value of their browser*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  /*inherit the box size property from down below*/
 }
 
-body{ /*here inside body selector we defined body wise font property that will be inherited by child element*/
-    font-family: "lato",sans-serif;
-    font-weight: 400;
-    /* font-size: 16px; */
-    line-height: 1.7; /*to give some distance between each lines of sentences*/
-    color: #777;
-    padding: 3rem;
-
-    box-sizing: border-box; /*So, if we set box sizing to border box,the height and the width will be defined for the entire box including the padding and the border and not just for the content area. What this means, at the same time is that the paddings and borders that we specify, will of course reduce the inner width of the content area,instead of adding them to the total height or width of an element.*/
+html {
+  font-size: 62.5%;
+  /*let our user chnage font size by change zoom in value of their browser*/
 }
 
-.header{
-    position: relative;
-    height: 95vh; /*in every case the height will be of 95% of view port height*/
-    background-image: 
-    linear-gradient( /*we put lineart gradiant first because we want it on the top and below that we want to show the hero image ,we specifies to right to make the gradiant start from left and go all the way to right*/
-        to right,
-        rgba(126, 213, 111, 0.801) , 
-        rgba(40, 180, 133, 0.801)
-        ), 
-    url("../img/hero.jpg");
-
-    background-size: cover; /*it will cover the entire avalable viewport*/
-    background-position: top; /*even if we change the view port the top remains the same*/
-    clip-path: polygon(
-        0       0,
-        100%    0,
-        100%  75vh,
-        0    100%
-        );
-}
-.header__logo-box{
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
-.header__logo{
-    height: 3.5rem;
+body {
+  /*here inside body selector we defined body wise font property that will be inherited by child element*/
+  font-family: "lato",sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  /*to give some distance between each lines of sentences*/
+  color: #777;
+  padding: 3rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /*So, if we set box sizing to border box,the height and the width will be defined for the entire box including the padding and the border and not just for the content area. What this means, at the same time is that the paddings and borders that we specify, will of course reduce the inner width of the content area,instead of adding them to the total height or width of an element.*/
 }
 
-.header__logo-box:hover .header__logo { /*TO ADD ANIMATION TO THE LOGO */
-    animation: moveInRight 1s ease-in;
+.header {
+  position: relative;
+  height: 95vh;
+  /*in every case the height will be of 95% of view port height*/
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(85, 197, 122, 0.8)), to(rgba(40, 180, 133, 0.8))), url("../img/hero.jpg");
+  background-image: linear-gradient(to right, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-size: cover;
+  /*it will cover the entire avalable viewport*/
+  background-position: top;
+  /*even if we change the view port the top remains the same*/
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.header__text-box{
-    position: absolute;
-    top: 40%; /*relative to parent element*/
-    left: 50%; /*relative to parent element*/
-    transform: translate(-50%,-50%); /*transform it in relative to itself to centre it at any viewport*/
-    text-align: center;
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
 }
 
-.heading-primary{
-    color: #fff;
-    text-transform: uppercase; /*to transaform the text into uppercase*/
-
-    backface-visibility: hidden; /*to avoid shaky animation my hiding back part element*/
-    margin-bottom: 6rem;
+.header__logo {
+  height: 3.5rem;
 }
-.heading-primary--main{
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem; /*to give spacing between each letter of a word*/
 
-    animation-name: moveInLeft; /*name of the animation*/
-    animation-duration: 1s; /*duration of the animation*/
-    animation-timing-function: ease-out;
-
-    /* animation-timing-function: step-start; it specifies hoow a css animation should progress over the diration of time of each cycle */
-    /* animation-iteration-count: 3;  this will replay the animation for the set count*/
-    /* animation-delay: 3s;  this will delay the animation for the set duration */
-
+.header__logo-box:hover .header__logo {
+  /*TO ADD ANIMATION TO THE LOGO */
+  -webkit-animation: moveInRight 1s ease-in;
+          animation: moveInRight 1s ease-in;
 }
-.heading-primary--sub{
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
 
-    animation: moveInRight 1s ease-out ; /*alternative way of setting animation property in a single line code*/
+.header__text-box {
+  position: absolute;
+  top: 40%;
+  /*relative to parent element*/
+  left: 50%;
+  /*relative to parent element*/
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  /*transform it in relative to itself to centre it at any viewport*/
+  text-align: center;
+}
 
-    /* animation-name: moveInRight;
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /*to transaform the text into uppercase*/
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  /*to avoid shaky animation my hiding back part element*/
+  margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  /*to give spacing between each letter of a word*/
+  -webkit-animation-name: moveInLeft;
+          animation-name: moveInLeft;
+  /*name of the animation*/
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  /*duration of the animation*/
+  -webkit-animation-timing-function: ease-out;
+          animation-timing-function: ease-out;
+  /* animation-timing-function: step-start; it specifies hoow a css animation should progress over the diration of time of each cycle */
+  /* animation-iteration-count: 3;  this will replay the animation for the set count*/
+  /* animation-delay: 3s;  this will delay the animation for the set duration */
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  -webkit-animation: moveInRight 1s ease-out;
+          animation: moveInRight 1s ease-out;
+  /*alternative way of setting animation property in a single line code*/
+  /* animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out; */
 }
 
-.btn:link, /*so normal state of link unclicked and link visited will remain same*/
-.btn:visited
-{
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s; /*transition property always used in initial state*/
-    position: relative;
-    font-size: 1.6rem;
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  /*transition property always used in initial state*/
+  position: relative;
+  font-size: 1.6rem;
 }
 
-.btn--white{
-    background-color: #fff;
-    color: #777;
+.btn--white {
+  background-color: #fff;
+  color: #777;
 }
 
-.btn:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .8); /*first two are in which direction we want to put the shadow 3rd argument is blur value and last is color of the shadow*/
+.btn:hover {
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.8);
+  /*first two are in which direction we want to put the shadow 3rd argument is blur value and last is color of the shadow*/
 }
 
-.btn:active{
-    transform: translateY(-1px);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .8);
+.btn:active {
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.8);
 }
 
-.btn::after{
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 10rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s ; 
-}
-.btn--white::after{
-    background-color: #fff;
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  -webkit-transition: all .4s;
+  transition: all .4s;
 }
 
-.btn:hover::after{
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
+.btn--white::after {
+  background-color: #fff;
 }
 
-.btn--animated{
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards; /*this automatically apply our 0% animation state to targeted element*/
-    
+.btn:hover::after {
+  -webkit-transform: scaleX(1.4) scaleY(1.6);
+          transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
 }
 
-
+.btn--animated {
+  -webkit-animation: moveInBottom .5s ease-out .75s;
+          animation: moveInBottom .5s ease-out .75s;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+  /*this automatically apply our 0% animation state to targeted element*/
+}
 
 /*--------------------------Animation @keyframe functions-----------------------------------*/
-
+@-webkit-keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  80% {
+    opacity: 0.7;
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
 @keyframes moveInLeft {
-    0%{
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-    80%{
-        opacity: 0.7;
-        transform: translateX(1rem);
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+  }
+  80% {
+    opacity: 0.7;
+    -webkit-transform: translateX(1rem);
+            transform: translateX(1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@-webkit-keyframes moveInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  80% {
+    opacity: 0.8;
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
 }
 
 @keyframes moveInRight {
-    0%{
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-    80%{
-        opacity: 0.8;
-        transform: translateX(-1rem);
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+  }
+  80% {
+    opacity: 0.8;
+    -webkit-transform: translateX(-1rem);
+            transform: translateX(-1rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
 }
 
-@keyframes moveInBottom{
-    0%{
-        opacity: 0;
-        transform: translateY(3rem);
-    }
-    100%{
-        opacity: 1;
-        transform: translate(0);
-    }
+@-webkit-keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(3rem);
+            transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
 }
 
 /*--------------------------Animation @keyframe functions-----------------------------------*/
+/*# sourceMappingURL=main.css.map */
