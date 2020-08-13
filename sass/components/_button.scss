@@ -1,5 +1,5 @@
 .btn{
-
+    &,
     &:link,
     &:visited//so normal state of link unclicked and link visited will remain same
     {
@@ -11,6 +11,11 @@
         transition: all .4s; /*transition property always used in initial state*/
         position: relative;
         font-size: $default-font-size;
+
+        //change for button element
+        
+        border: none;
+        cursor: pointer;
     }
 
     &--white{
@@ -42,7 +47,8 @@
         }
     }
 
-    &:active{
+    &:active,&:hover{
+        outline: none;
         transform: translateY(-1px);
         box-shadow: 0 .5rem 1rem rgba($color-black, .8);
     }
