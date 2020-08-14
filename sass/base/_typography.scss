@@ -6,7 +6,7 @@ body{
     /* font-size: 16px; */
     line-height: 1.7; /*to give some distance between each lines of sentences*/
     color: $color-grey-dark;
-    padding: 3rem;
+    
 }
 
 
@@ -17,6 +17,7 @@ body{
     backface-visibility: hidden; /*to avoid shaky animation my hiding back part element*/
     margin-bottom: 6rem;
 
+
     &--main{
         display: block;
         font-size: 6rem;
@@ -26,6 +27,11 @@ body{
         animation-name: moveInLeft; /*name of the animation*/
         animation-duration: 1s; /*duration of the animation*/
         animation-timing-function: ease-out;
+
+        @include respond(phone){
+            letter-spacing: 1rem;
+            font-size: 5rem;
+        }
     
         /* animation-timing-function: step-start; it specifies hoow a css animation should progress over the diration of time of each cycle */
         /* animation-iteration-count: 3;  this will replay the animation for the set count*/
@@ -39,7 +45,12 @@ body{
         letter-spacing: 1.75rem;
     
         animation: moveInRight 1s ease-out ; /*alternative way of setting animation property in a single line code*/
-    
+        
+        @include respond(phone){
+            letter-spacing: .5rem;
+            
+        }
+
         /* animation-name: moveInRight;
         animation-duration: 1s;
         animation-timing-function: ease-out; */
@@ -57,6 +68,16 @@ body{
     color: transparent;
     letter-spacing: .2rem;
     transition: all .2s;
+
+    @include respond(tab-port){
+        font-size: 3rem; 
+        
+    }
+
+    @include respond(phone){
+        font-size: 2.0rem;
+        
+    }
 
     &:hover{
         transform: skewY(2deg) skewX(15deg) scale(1.1);

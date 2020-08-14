@@ -21,20 +21,38 @@
         opacity: 0;
         transform: translate(-50%,-50%) scale(.25); 
         transition: all .5s .2s;
+
+        @include respond(tab-land){
+            width: 95%;
+        }
     }
     &__left{
         width: 33.333333%;
         display: table-cell;
+        @include respond(tab-land){
+            display: table-row;
+        }
     }
     &__right{
         width: 66.666667%;
         display: table-cell;
         vertical-align: middle; //to allign this in the middle of its cell
         padding: 3rem 5rem;
+
+        @include respond(tab-land){
+            display: table-row;
+            text-align: center;
+            
+        }
     }
     &__img{
         display: block;
         width: 99%;
+        @include respond(tab-land){
+            width: 50%;
+            display: inline-block;
+            margin-top: -1.1rem;
+        }
         
     }
     &__text{
@@ -51,6 +69,18 @@
 
         -moz-hyphens: auto;
         hyphens: auto; //wont work in our case because it is only supported in chrom for mac and android platform for time being :(
+        
+            @include respond(tab-land) {
+                column-count: 1;
+                column-gap: 0;
+                column-rule: none;
+            }
+     
+            @include respond(phone) {
+                column-count: 1;
+                margin-bottom: 2rem;
+            }
+      
     }
     //open state of our popup
     &:target{

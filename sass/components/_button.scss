@@ -11,11 +11,16 @@
         transition: all .4s; /*transition property always used in initial state*/
         position: relative;
         font-size: $default-font-size;
+        transform: translateY(0);
 
         //change for button element
         
         border: none;
         cursor: pointer;
+
+        @include respond(tab-land){
+            transform: translateY(-1rem);
+        }
     }
 
     &--white{

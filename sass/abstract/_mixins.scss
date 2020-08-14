@@ -13,3 +13,29 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
+
+
+//our breakpoints choices
+// phone  - 0 to 600px
+// tab-port - 600px to 900px
+// tab-land  - 900px to 1200 px
+// big-desktop - above 1800px
+//[1200px to 1800px] this is where we apply our normal style
+
+//ORDER : base + typography > general layout> grid >page layout > components
+
+//MEDIA QUERY MANAGER
+@mixin respond($breakpoint){
+    @if($breakpoint == phone){
+        @media(max-width:37.5em){@content}; //600px
+    }
+    @if($breakpoint == tab-port){
+        @media(max-width:56.25em){@content};  //900px
+    }
+    @if($breakpoint == tab-land){
+        @media(max-width:75em){@content};  //1200px
+    }
+    @if($breakpoint == big-desktop){
+        @media(max-width:112.5em){@content};  //1800px
+    }
+}
