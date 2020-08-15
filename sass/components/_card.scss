@@ -175,8 +175,9 @@
     }
 
 
-    @include respond(tab-port){
-        
+    // @include respond(tab-port){
+
+        @media only screen and (max-width:56.25em) , only screen and (hover:none) {
         height: auto;
         border-radius: 3px; //to make border radius applied to parent div not child so that each child wont have border radius that wont let them merge nicely
         background-color: $color-white;
