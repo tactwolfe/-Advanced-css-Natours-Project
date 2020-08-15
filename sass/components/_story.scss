@@ -22,11 +22,17 @@
     &__shape{
         width: 15rem;
         height: 15rem;
-        float: left;
-        clip-path: circle(50% at 50% 50%); //to make this element a circle
-        shape-outside: circle(50% at 50% 50%); //this work if the element we are using it on is floated also have define dimension i.e height and width and it is used to wrap all the element around this element
+        float: left; 
         transform: translatex(-3rem) skewX(12deg); 
         position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+
+        @supports(clip-path: polygon(0 0)){
+            clip-path: circle(50% at 50% 50%); //to make this element a circle
+            shape-outside: circle(50% at 50% 50%); //this work if the element we are using it on is floated also have define dimension i.e height and width and it is used to wrap all the element around this element
+            border-radius: none;
+        }
 
         @include respond(phone){
             transform: translatex(-3rem) skewX(0);

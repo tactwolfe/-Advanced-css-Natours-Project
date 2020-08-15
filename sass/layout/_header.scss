@@ -1,6 +1,6 @@
 .header{
     position: relative;
-    height: 95vh; /*in every case the height will be of 95% of view port height*/
+    height: 85vh; /*in every case the height will be of 95% of view port height*/
     background-image: 
     linear-gradient( /*we put lineart gradiant first because we want it on the top and below that we want to show the hero image ,we specifies to right to make the gradiant start from left and go all the way to right*/
         to right,
@@ -10,9 +10,16 @@
     url("../img/hero-small.jpg");
     background-size: cover; /*it will cover the entire avalable viewport*/
     background-position: top; /*even if we change the view port the top remains the same*/
-    clip-path: polygon( 0  0, 100%  0, 100%  75vh,0  100%);
+    
 
-    @media(min-resolution: 192dpi) and (min-width:37.5em),(min-width:125em){
+    @supports(clip-path: polygon(0 0)){
+        clip-path: polygon( 0  0, 100%  0, 100%  75vh,0  100%);
+        height: 95vh;
+    }
+
+    @media(min-resolution: 192dpi) and (min-width:37.5em),
+    (-webkit-min-device-pixel-ratio: 2) and (min-width:37.5em),
+    (min-width:125em){
         background-image: 
         linear-gradient( 
             to right,

@@ -875,12 +875,20 @@ body {
   width: 15rem;
   height: 15rem;
   float: left;
-  -webkit-clip-path: circle(50% at 50% 50%);
-          clip-path: circle(50% at 50% 50%);
-  shape-outside: circle(50% at 50% 50%);
   -webkit-transform: translatex(-3rem) skewX(12deg);
           transform: translatex(-3rem) skewX(12deg);
   position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+  .story__shape {
+    -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    border-radius: none;
+  }
 }
 
 @media (max-width: 37.5em) {
@@ -974,6 +982,14 @@ body {
   transition: all .3s;
 }
 
+@supports ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .popup {
+    -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
 .popup__content {
   position: absolute;
   top: 50%;
@@ -1050,9 +1066,14 @@ body {
           column-gap: 4rem;
   -webkit-column-rule: 1px solid #eee;
           column-rule: 1px solid #eee;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
+}
+
+@supports ((-webkit-hyphens: auto) or (-ms-hyphens: auto) or (hyphens: auto)) or (-moz-hyphens: auto) {
+  .popup__text {
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+  }
 }
 
 @media (max-width: 75em) {
@@ -1104,7 +1125,7 @@ body {
 
 .header {
   position: relative;
-  height: 95vh;
+  height: 85vh;
   /*in every case the height will be of 95% of view port height*/
   background-image: -webkit-gradient(linear, left top, right top, from(rgba(126, 213, 111, 0.8)), to(rgba(40, 180, 133, 0.8))), url("../img/hero-small.jpg");
   background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero-small.jpg");
@@ -1112,8 +1133,14 @@ body {
   /*it will cover the entire avalable viewport*/
   background-position: top;
   /*even if we change the view port the top remains the same*/
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+@supports ((-webkit-clip-path: polygon(0 0)) or (clip-path: polygon(0 0))) {
+  .header {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh;
+  }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em), (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
